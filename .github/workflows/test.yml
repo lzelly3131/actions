@@ -1,0 +1,34 @@
+name: test
+
+on: [push]
+
+jobs: 
+  hola: 
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Hola mundo
+        run: echo "Hola mundo desde Github Actions"
+      
+      - name: touch file
+        run: touch test.txt
+
+      - name: Set text
+        run: echo "Hola mundo desde Github Actions" > test.txt
+
+      - name: Read file
+        run: cat test.txt
+  
+  other:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: ls
+        run: ls -la
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Node version
+        run: node -v
