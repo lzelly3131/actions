@@ -1,0 +1,10 @@
+name: "My action"
+description: "My action description"
+
+runs:
+  using: "composite"
+
+  steps:
+    - name: Hola mundo
+      run: echo "Hola mundo desde Github Actions"
+      shell: bash
